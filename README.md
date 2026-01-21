@@ -15,14 +15,14 @@
 
 <img src="https://github.com/user-attachments/assets/0eb5492c-a15b-4cdc-a0b3-45100aaa6a2d" width="300" />
 
-<img src="https://github.com/user-attachments/assets/d7189078-b0d9-42b5-b91c-5efd05e93415" width="300" />
-
 ---
 
 ## 二、开始游戏
 
 - 点击页面 **任意位置**
 - 游戏正式启动
+
+<img src="https://github.com/user-attachments/assets/d7189078-b0d9-42b5-b91c-5efd05e93415" width="300" />
 
 <img src="https://github.com/user-attachments/assets/7085854c-5feb-47f8-bd95-d282a8a76a2f" width="300" />
 
