@@ -1,0 +1,11 @@
+OSS_ACCESS_KEY_ID = "LTAI5tBhrFu4mrMC6cMpSKiC"
+OSS_ACCESS_KEY_SECRET = "8HsSNa0Llu5KUEcJj297J2sGigU9yF"
+OSS_ENDPOINT = "oss-cn-hangzhou.aliyuncs.com"
+OSS_BUCKET_NAME = "the3edu-event-bucket"
+
+REACT_APP_BACKEND_URL=https://api.the3studio.cn/api
+REACT_APP_FC_FUNCTION_URL = https://test-sdcdvaytub.cn-hangzhou.fcapp.run
+
+PORT=5001
+HOST=0.0.0.0
+NODE_ENV=production

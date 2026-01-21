@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <video id="v" playsinline webkit-playsinline autoplay muted style="width: 100%; height: auto;"></video>
+    <script>
+      navigator.mediaDevices.getUserMedia({
+        video: {
+          facingMode: "user",
+          width: { ideal: 640 },
+          height: { ideal: 480 }
+        },
+        audio: false
+      }).then(stream => {
+        const v = document.getElementById("v");
+        v.srcObject = stream;
+        v.play().catch(e => console.error('video.play error', e));
+      }).catch(err => {
+        console.error('getUserMedia error', err);
+        alert('getUserMedia error: ' + err.name);
+      });
+    </script>
+  </body>
+</html>

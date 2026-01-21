@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<!-- 使用本地 p5 和 ml5 库 -->
+	<script src="libs/p5.js"></script>
+	<script src="libs/ml5.min.js"></script>
+	
+	<!-- 使用本地 FFmpeg 库 -->
+	<script src="libs/ffmpeg/util.js"></script>
+	<script src="libs/ffmpeg/ffmpeg.js"></script>
+	
+	<!-- 等待脚本加载完成后再加载主脚本 -->
+	<script>
+		// 确保 FFmpeg 脚本已加载
+		window.addEventListener('load', function() {
+			console.log('Page loaded, checking FFmpegWASM...');
+			console.log('window.FFmpegWASM:', typeof window.FFmpegWASM !== 'undefined' ? 'found' : 'not found');
+			if (window.FFmpegWASM) {
+				console.log('FFmpegWASM structure:', Object.keys(window.FFmpegWASM));
+			}
+		});
+	</script>
+
+	<script src="magnet.js"></script>
+	<script src="mySketch.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>   
+	<!-- Loading 界面 -->
+	<div id="loading" class="loading-container">
+		<div class="loading-spinner"></div>
+		<div class="loading-text">加载中...</div>
+	</div>
+	
+	<!-- 主画布容器 -->
+	<div id="canvas-container"></div>
+</body>
+
+</html>
