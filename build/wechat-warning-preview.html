@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeChat Warning Screen Preview</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .wechat-warning-screen {
+      width: 100vw;
+      max-width: 60vh;
+      height: 100vh;
+      background-size: cover;
+      background-image: url('/Images/bg.webp');
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+
+    .wechat-warning-content {
+      text-align: center;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 30px;
+      max-width: 90%;
+      width: 100%;
+      position: relative;
+      margin-top: -15vh; /* 向上移动 */
+    }
+
+    .wechat-warning-arrow {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 10001;
+    }
+
+
+    .wechat-warning-text {
+      font-size: 18px;
+      /* font-weight: bold; */
+      color: #1d1d1d;
+      line-height: 1.8;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .wechat-warning-browser-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .browser-logo-image {
+      width: auto;
+      height: auto;
+      max-width: 200px;
+      max-height: 100px;
+    }
+
+    .copied-toast {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 20px 40px;
+      border-radius: 8px;
+      font-size: 18px;
+      z-index: 10002;
+      pointer-events: none;
+    }
+
+    .copy-text{
+        background-color: #F86D06;
+        border: 1px solid #F86D06;
+        border-radius: 8px;
+        margin: 2px 2px;
+        padding: 1px 1px;
+      }
+
+    @keyframes fadeInOut {
+      0% {
+        opacity: 0;
+      }
+      15% {
+        opacity: 1;
+      }
+      85% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .wechat-warning-content {
+        padding: 30px 20px;
+      }
+      
+      .wechat-warning-text {
+        font-size: 18px;
+      }
+      
+      .arrow-image {
+        max-width: 120px;
+        max-height: 120px;
+      }
+      
+      .browser-logo-image {
+        max-width: 150px;
+        max-height: 75px;
+      }
+
+      
+    }
+  </style>
+</head>
+<body>
+  <div class="wechat-warning-screen" onclick="handleCopyUrl()">
+    <div class="wechat-warning-content">
+      <!-- 浏览器 Logo -->
+      <div class="wechat-warning-browser-logo">
+        <img 
+          src="/Images/weblogo.png"
+          alt="Browser Logo"
+          class="browser-logo-image"
+        />
+      </div>
+      
+      <!-- 提示文字 - 放在 logo 下面 -->
+      <div class="wechat-warning-text">
+        <div>https://ankorau0.com/game/2026/blackhorse</div>
+        <div>点击<span class="copy-text">复制网址</span>并在浏览器打开</div>
+        <div>小马们等你</div>
+      </div>
+    </div>
+    
+    <!-- 已复制提示弹框 -->
+    <div id="copied-toast" class="copied-toast" style="display: none;">
+      链接已复制
+    </div>
+  </div>
+
+  <script>
+    async function handleCopyUrl() {
+      const url = 'https://ankorau0.com/game/2026/blackhorse';
+      const toast = document.getElementById('copied-toast');
+      
+      try {
+        // 使用 Clipboard API 复制网址
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(url);
+        } else {
+          // 降级方案：使用传统的复制方法
+          const textArea = document.createElement('textarea');
+          textArea.value = url;
+          textArea.style.position = 'fixed';
+          textArea.style.opacity = '0';
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+        }
+        
+        // 显示"已复制"提示
+        toast.style.display = 'block';
+        setTimeout(() => {
+          toast.style.display = 'none';
+        }, 2000); // 2秒后自动隐藏
+      } catch (error) {
+        console.error('复制失败:', error);
+      }
+    }
+  </script>
+</body>
+</html>
+

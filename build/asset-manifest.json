@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/web-ankorau/static/css/main.b0326c25.css",
+    "main.js": "/web-ankorau/static/js/main.62fd3486.js",
+    "index.html": "/web-ankorau/index.html",
+    "main.b0326c25.css.map": "/web-ankorau/static/css/main.b0326c25.css.map",
+    "main.62fd3486.js.map": "/web-ankorau/static/js/main.62fd3486.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b0326c25.css",
+    "static/js/main.62fd3486.js"
+  ]
+}

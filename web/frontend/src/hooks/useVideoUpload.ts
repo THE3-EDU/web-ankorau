@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'https://ankorau0.com/api';
 
 export const useVideoUpload = () => {
   const [isUploading, setIsUploading] = useState(false);
