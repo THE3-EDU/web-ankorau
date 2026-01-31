@@ -1,0 +1,185 @@
+.start-screen {
+  width: 100vw;
+  max-width: 60vh;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.start-screen-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  /* padding: 20px; */
+  box-sizing: border-box;
+}
+
+.start-screen-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-bottom: 40px; */
+  flex: 1;
+  width: 100%;
+  /* max-height: 60vh; */
+  min-height: 0;
+}
+
+.start-screen-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* 视频样式 */
+.start-screen-image-container video {
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.start-hint {
+  color: #000000;
+  font-size: 16px;
+  font-weight: normal;
+  margin-bottom: 80px;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  user-select: none;
+}
+
+.start-screen-footer {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #666666;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  /* .start-screen-image-container {
+    margin-bottom: 30px;
+    max-height: 50vh;
+  } */
+  
+  .start-hint {
+    font-size: 16px;
+    margin-bottom: 50px;
+  }
+  
+  .start-screen-footer {
+    font-size: 11px;
+    bottom: 15px;
+  }
+}
+
+/* 小屏幕适配 */
+@media (max-width: 480px) {
+  /* .start-screen-image-container {
+    margin-bottom: 20px;
+    max-height: 45vh;
+  }
+   */
+  .start-hint {
+    font-size: 16px;
+    margin-bottom: 100px;
+  }
+  
+  .start-screen-footer {
+    font-size: 10px;
+    bottom: 10px;
+  }
+}
+
+/* 声音选择弹窗 */
+.sound-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.sound-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.sound-modal-card {
+  position: relative;
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+  padding: 20px 16px;
+  width: min(320px, 90vw);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+
+.sound-prompt-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+}
+
+.sound-prompt-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.sound-btn {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 20px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.sound-btn-on {
+  background: #F86D06;
+  color: #000000;
+}
+
+.sound-btn-off {
+  background: #7DE5D4;
+  color: #111;
+}
+
